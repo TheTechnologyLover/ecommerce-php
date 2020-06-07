@@ -1,0 +1,6 @@
+RedirectMatch 403 ^/components/.*$
+RedirectMatch 403 ^/configs/.*$
+RedirectMatch 403 ^/core/.*$
+RedirectMatch 403 ^/helpers/.*$
+RedirectMatch 403 ^/middlewares/.*$
+RedirectMatch 403 ^/models/.*$
