@@ -1,5 +1,6 @@
 <?php
     include ("../../configs/init.php");
+    include ("./settings/read.php");
 ?>
 <!DOCTYPE html>
 <html lang="zxx" class="js">
@@ -37,17 +38,18 @@
                                     </div><!-- .nk-block-head -->
                                   
                                     <div class="nk-block">
-                                        <form>
+                                        <form action="" method="post">
+                                            <?php echo $output; ?>
                                             <div class="form-group">
-                                                <label for="deptName">Old Password</label>
-                                                <input type="password" class="form-control" id="oldPassword" required name="oldPassword">
+                                                <label for="oldPassword">Old Password</label>
+                                                <input value="<?php echo $user->password ?>" disabled name="old_password" type="password" class="form-control" id="oldPassword" required>
                                             </div>
                                             <div class="form-group">
-                                                <label for="deptName">New Password</label>
-                                                <input type="password" class="form-control" id="newPassword" required name="newPassword">
+                                                <label for="newPassword">New Password</label>
+                                                <input  name="password" type="password" class="form-control" id="newPassword" required>
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary">Save</button>
+                                            <input type="submit" value="Save" name="submit" class="btn btn-primary" />
                                           </form>                                          
                                     </div><!-- .nk-block -->
                                 </div>

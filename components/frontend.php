@@ -34,6 +34,7 @@
 
 
     function get_navbar_frontend($departments, $Session, $cartItems, $cartPrice){
+      
         ?>
 
 <!-- Page Preloder -->
@@ -179,10 +180,11 @@
                             <span>All departments</span>
                         </div>
                         <ul>
+                            <li><a href="shopping.php">All departments</a></li>
                             <?php
 
                                 foreach($departments as $key){
-                                    ?><li><a href="?dept=<?php echo $key['id'] ?>"><?php echo $key['title'] ?></a></li><?php
+                                    ?><li><a href="shopping.php?dept=<?php echo $key['id'] ?>"><?php echo $key['title'] ?></a></li><?php
                                 }
                             
                             ?>
@@ -190,27 +192,6 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div class="hero__search">
-                        <div class="hero__search__form">
-                            <form action="#">
-                                <div class="hero__search__categories">
-                                    All Categories
-                                    <span class="arrow_carrot-down"></span>
-                                </div>
-                                <input type="text" placeholder="What do yo u need?">
-                                <button type="submit" class="site-btn">SEARCH</button>
-                            </form>
-                        </div>
-                        <div class="hero__search__phone">
-                            <div class="hero__search__phone__icon">
-                                <i class="fa fa-phone"></i>
-                            </div>
-                            <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
-                                <span>support 24/7 time</span>
-                            </div>
-                        </div>
-                    </div><br><br>
                     <?php
 
                         if($_SERVER['REQUEST_URI'] === '/' || $_SERVER['REQUEST_URI'] === '/index.php'){
@@ -220,7 +201,7 @@
                             <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="<?php echo SERVER_ROOT . 'shopping.php' ?>" class="primary-btn">SHOP NOW</a>
+                            <a href="#" class="primary-btn">SHOP NOW</a>
                         </div>
                     </div>
                             <?php

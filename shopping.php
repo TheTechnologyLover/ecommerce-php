@@ -51,16 +51,8 @@
                             <div class="product__item">
                                 <div class="product__item__pic set-bg" data-setbg="<?php echo SERVER_ROOT . 'uploads/' . $row['filename'] ?>">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-retweet"></i></a></li>
-                                        <?php
-                                            if($Session->is_signed_in()){
-                                                ?>
-                                                     <li class='shopping-cart' data-product="<?php echo $row['id'] ?>"><a><i class="fa fa-shopping-cart"></i></a></li>
-                                                <?php
-                                            }
-                                        ?>
-                                       
+                                        <li class='shopping-cart' data-product="<?php echo $row['id'] ?>"><a><i class="fa fa-shopping-cart"></i></a></li>
+                                      
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
@@ -86,6 +78,31 @@
     </section>
     <!-- Product Section End -->
 
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Alert</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Please log in first.
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <a  href="login.php" class="btn btn-primary">Login</a>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <?php get_footer_frontend(); ?>
 
     <?php get_script_frontend(); ?>
@@ -99,10 +116,17 @@
 
     jQuery(document).ready(function ($){
 
+        let signed_in = <?php echo  $Session->is_signed_in() === true ? 'true' : 'false' ?>
         let cartItems = <?php echo $cartItems ?>;
         let cartPrice = <?php echo $cartPrice ?>;
 
         $('.shopping-cart').click(function(){
+
+            
+            if(!signed_in){
+                $("#myModal").modal('show');
+                return;
+            }
 
             let productId = $(this).attr('data-product');
             

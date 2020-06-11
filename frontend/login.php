@@ -5,7 +5,7 @@ $output = '';
 if(isset($_POST["submit"])){
 
     $username = sanitize($_POST["email"]);
-    $password = sanitize($_POST["password"]);
+    $password = md5(sanitize($_POST["password"]));
 
     $userFound = User::verify($username, $password);
 

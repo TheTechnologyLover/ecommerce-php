@@ -94,17 +94,7 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="shoping__continue">
-                        <div class="shoping__discount">
-                            <h5>Discount Codes</h5>
-                            <?php echo $couponFalse ?>
-                            <form action="" method="post">                                
-                                <input type="text" name="total" value="<?php echo $total ?>" style="display: none"/>
-                                <input type="text" value="<?php echo $code; ?>" name="coupon" placeholder="Enter your coupon code">
-                                <input type="submit" value="APPLY COUPON"  name="submit" class="site-btn" />
-                            </form>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="col-lg-6">
                     <div class="shoping__checkout">
