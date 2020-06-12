@@ -41,8 +41,10 @@
 
   <body class="text-center">
     <form method="post" action="" class="form-signin">
+
       <img class="mb-4" src="<?php echo STATIC_PATH ?>images/img/logo.png" alt="logo" height="50">
       <h1 class="h4 mb-3 font-weight-normal">Sign in</h1>
+        <?php echo $output; ?>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>

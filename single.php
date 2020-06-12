@@ -26,15 +26,13 @@
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="product__details__text">
-                        <h3>Vetgetable’s Package</h3>
-                        <div class="product__details__price">₹50.00</div>
+                        <h3><?php echo $product[0]['title'] ?></h3>
+                        <div class="product__details__price">₹<?php echo $product[0]['price'] ?></div>
                         <ul>
-                            <li><b>Weight</b> <span>0.5 kg</span></li>
+                            <li><b>Weight</b> <span><?php echo $product[0]['weight'] ?> kg</span></li>
                         </ul>
                         <hr>
-                        <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
-                            vehicula elementum sed sit amet dui. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
-                            quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                        <p><?php echo $product[0][''] ?></p>
                         <div class="product__details__quantity">
                             <div class="quantity">
                                 <div class="pro-qty">
