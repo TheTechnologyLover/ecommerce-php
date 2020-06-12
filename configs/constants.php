@@ -1,9 +1,9 @@
 <?php
 
-    define( "SITE_ROOT", $_SERVER['DOCUMENT_ROOT'] );
+    define( "SITE_ROOT", $_SERVER['DOCUMENT_ROOT'] . '/' );
     define ( "SERVER_HOST", $_SERVER["HTTP_HOST"] );
     define ( "SERVER_PROTOCOL", "http" );
-    define ( "SERVER_ROOT", SERVER_PROTOCOL . "://" . SERVER_HOST );
+    define ( "SERVER_ROOT", SERVER_PROTOCOL . "://" . SERVER_HOST . '/' );
     define ( "COMPONENTS_PATH" , SITE_ROOT . "components/" );
     define ( "CORE_PATH" , SITE_ROOT . "core/" );
     define ( "HELPERS_PATH" , SITE_ROOT . "helpers/" );
