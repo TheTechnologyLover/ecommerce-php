@@ -40,16 +40,16 @@
   </head>
 
   <body class="text-center">
-    <form class="form-signin">
+    <form method="post" action="" class="form-signin">
       <img class="mb-4" src="<?php echo STATIC_PATH ?>images/img/logo.png" alt="logo" height="50">
       <h1 class="h4 mb-3 font-weight-normal">Sign in</h1>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+      <input class="btn btn-lg btn-primary btn-block" value="Sign in" name="submit" type="submit" />
       <br /><br />
-      <a href="" class="btn btn-lg btn-outline-primary btn-block">Create an account</a>
+      <a href="register.php" class="btn btn-lg btn-outline-primary btn-block">Create an account</a>
     </form>
     
     <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>

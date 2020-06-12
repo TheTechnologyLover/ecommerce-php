@@ -13,9 +13,10 @@
         $conf_password = md5(sanitize($_POST['conf_password']));
         $user->mobileno = sanitize($_POST['mobileno']);
 
-        if(!User::search("email", $user->email)){
-            $output = displayAlert('Email is already registered', 'alert-danger');
-        }else{
+        $userFound = User::search("email", $user->email, false);
+
+        if($userFound === false){
+
             if($user->password !== $conf_password){
                 $output = displayAlert('Passwords do not match', 'alert-danger');
             }else{
@@ -27,10 +28,10 @@
                 }
     
             }
-    
+        }else{
+            $output = displayAlert('Email is already registered', 'alert-danger');
         }
 
-        
         
 
     }

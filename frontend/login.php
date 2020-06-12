@@ -9,6 +9,8 @@ if(isset($_POST["submit"])){
 
     $userFound = User::verify($username, $password);
 
+    print_r($userFound);
+
     if($userFound){
 
         if($userFound['is_admin'] == -1){
