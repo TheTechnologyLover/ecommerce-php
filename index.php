@@ -121,7 +121,7 @@
 
     jQuery(document).ready(function ($){
 
-        let signed_in = <?php echo  $Session->is_signed_in() === true ? 'true' : 'false' ?>
+        let signed_in = <?php echo  $Session->is_signed_in() === true ? 'true' : 'false' ?>;
         let cartItems = <?php echo $cartItems ?>;
         let cartPrice = <?php echo $cartPrice ?>;
 
@@ -142,6 +142,7 @@
             $.post('api/cart.php', obj, function(data, status){
                 
                 if(status === 'success'){
+                    console.log(data);
                     data = JSON.parse(data);
                     cartItems = data['count'];
                     cartPrice = data['price'];

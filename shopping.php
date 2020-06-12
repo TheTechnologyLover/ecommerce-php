@@ -116,7 +116,7 @@
 
     jQuery(document).ready(function ($){
 
-        let signed_in = <?php echo  $Session->is_signed_in() === true ? 'true' : 'false' ?>
+        let signed_in = <?php echo  $Session->is_signed_in() === true ? 'true' : 'false' ?>;
         let cartItems = <?php echo $cartItems ?>;
         let cartPrice = <?php echo $cartPrice ?>;
 

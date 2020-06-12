@@ -18,34 +18,23 @@
         $order->transactionid = sanitize($_POST['razorpay_payment_id']);
         $order->status = "Processing";
 
+
         if($order->insert()){
 
-            $array = array();
             $currentOrder = Order::search('transactionid', $order->transactionid, false);
+            $query = "INSERT into order_items( orderid, productid, price, quantity, weight, title ) values ";
+
             for($i=0; $i<sizeof($_POST['products']); $i++){
-                array_push(
-                    $array, 
-                    array(
-                        $currentOrder->id, 
-                        sanitize($_POST['products'][$i]),
-                        sanitize($_POST['price'][$i]),
-                        sanitize($_POST['quantity'][$i])
-                    )
-                );
+                $query .= "( {$currentOrder->id}, {$_POST['products'][$i]}, {$_POST['price'][$i]}, {$_POST['quantity'][$i]}, {$_POST['weight'][$i]}, '{$_POST['title'][$i]}'),";
             }
 
-            if( Crud::multiCreate(
-                array("orderid", "productid", "price", "quantity"),
-                $array,
-                "order_items",
-                array()
-            ) ){
+            $query = substr($query, 0, strlen($query)-1);
 
+            if( $database->query($query) ){
                 redirect(SERVER_ROOT . "tracking.php?order_status=true");
             }else{
                 redirect(SERVER_ROOT . "checkout.php?order_status=false");
             }
-
         }else{
             redirect(SERVER_ROOT . "checkout.php?order_status=false");
         }

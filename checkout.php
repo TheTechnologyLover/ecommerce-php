@@ -52,7 +52,7 @@
                 <?php echo $output; ?>
                 <form action="" method="post"> 
                     <h5>Discount Codes</h5>
-                                               
+                    <?php echo $couponFalse; ?>                  
                     <input type="text" name="total" value="<?php echo $total ?>" style="display: none"/>
                     <input type="text" value="<?php echo $code; ?>" name="coupon" placeholder="Enter your coupon code">
                     <input type="submit" value="APPLY COUPON"  name="submit" class="site-btn" />
@@ -90,8 +90,8 @@
                             </div>
                             <div class="checkout__input">
                                 <p>Address<span>*</span></p>
-                                <input name="street" type="text"  placeholder="Street Address" class="checkout__input__add">
-                                <input name="apartment" type="text" placeholder="Apartment, suite, unite ect (optinal)">
+                                <input name="street" required type="text"  placeholder="Street Address" class="checkout__input__add">
+                                <input name="apartment" required type="text" placeholder="Apartment, suite, unite ect (optinal)">
                             </div>
                             <div class="checkout__input">
                                 <p>Postcode / ZIP<span>*</span></p>
@@ -128,6 +128,8 @@
                                             <input type="hidden" name="products[]" value="<?php echo $row['id'] ?>" />
                                             <input type="hidden" name="price[]" value="<?php echo $row['price'] ?>" />
                                             <input type="hidden" name="quantity[]" value="<?php echo $row['quantity'] ?>" />
+                                            <input type="hidden" name="weight[]" value="<?php echo $row['weight'] ?>" />
+                                            <input type="hidden" name="title[]" value="<?php echo $row['title'] ?>" />
                                             <li><?php echo $row['title'] ?><span>₹<?php echo $row['price']*$row['quantity'] ?></span></li>
                                             <?php
                                         }

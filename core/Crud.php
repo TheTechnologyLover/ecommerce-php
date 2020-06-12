@@ -106,6 +106,7 @@
     
                 $sql = substr($sql, 0, strlen($sql) - 2);
                 $query .= $sql;
+                echo $query;
                 if ($database->query($query)) {
                     return true;
                 }

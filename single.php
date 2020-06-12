@@ -20,7 +20,7 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__item">
                             <img class="product__details__pic__item--large"
-                                src="<?php echo STATIC_PATH?>img/images/product/details/product-details-1.jpg" alt="">
+                                src="<?php echo SERVER_ROOT . 'uploads/' . $product[0]['filename']?>" alt="">
                         </div>
                     </div>
                 </div>
@@ -165,6 +165,7 @@
                 $.post('api/cart.php', obj, function(data, status){
                 
                     if(status === 'success'){
+                        console.log(data);
                         data = JSON.parse(data);
                         cartItems = data['count'];
                         cartPrice = data['price'];

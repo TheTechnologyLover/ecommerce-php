@@ -9,12 +9,13 @@
         $currentDir = $currentDir == 'auth' ? $currentDir . "/" . $urlArray[2] : $currentDir;
 
 
+        if(!isset($currentDir) && ROUTE_SETTINGS[$currentDir] !== null){
+            if($currentDir !== 'api' && !in_array($Session->role, ROUTE_SETTINGS[$currentDir])){
 
-        if($currentDir !== 'api' && !in_array($Session->role, ROUTE_SETTINGS[$currentDir])){
+                // Die the script or redirect to 404 page
+                redirect(SERVER_ROOT . "pages/404.php");
 
-            // Die the script or redirect to 404 page
-            redirect(SERVER_ROOT . "pages/404.php");
-
+            }
         }
     }
     

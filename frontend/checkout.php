@@ -8,7 +8,7 @@
     $output = '';
     
     if($Session->is_signed_in()){
-        $cartProducts = Crud::read("select products.id, products.title, products.price, cart.quantity  from products, cart where products.id = cart.productid and cart.userid = $Session->user_id");
+        $cartProducts = Crud::read("select products.id, products.title, products.weight, products.price, cart.quantity  from products, cart where products.id = cart.productid and cart.userid = $Session->user_id");
     
         $user = User::search('id', $Session->user_id);
         $productinfo = '';
@@ -44,7 +44,7 @@
                 if($coupon->type === "Rupees"){
                     $new_total = $total - $coupon->value;
                 }else if($coupon->type === "Percent"){
-                    $new_total = $total - $coupon->value*$total;
+                    $new_total = $total - $coupon->value*$total / 100;
                 }
 
                 $couponApplied = true;

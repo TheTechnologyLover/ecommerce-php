@@ -6,7 +6,7 @@
     
 
     if($Session->is_signed_in()){
-        $results = Crud::read("select orders.id, orders.total, orders.date, orders.transactionid, orders.coupon, orders.saved, orders.status, products.title, order_items.quantity, order_items.price from orders, order_items, products where orders.id = order_items.orderid and order_items.productid = products.id and orders.userid = ". $Session->user_id . " order by orders.date desc, orders.id");
+        $results = Crud::read("select orders.id, orders.total, orders.date, orders.transactionid, orders.coupon, orders.saved, orders.status, order_items.title, order_items.quantity, order_items.price from orders, order_items, products where orders.id = order_items.orderid and order_items.productid = products.id and orders.userid = ". $Session->user_id . " order by orders.date desc, orders.id");
         
         if(sizeof($results) > 0){
 
