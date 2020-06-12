@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2020 at 07:40 PM
+-- Generation Time: Jun 12, 2020 at 06:40 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.2.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `cart` (
 
 INSERT INTO `cart` (`userid`, `productid`, `quantity`) VALUES
 (1, 1, 1),
-(1, 2, 3);
+(1, 2, 3),
+(1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -109,8 +110,9 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`id`, `userid`, `date`, `total`, `transactionid`, `pincode`, `address`, `landmark`, `coupon`, `saved`, `status`) VALUES
 (3, 1, '2020-06-06 11:53:32', 80, 'pay_EzJR7SndNH2Yc1', '', '', '', 'COD124', 12, 'Delivered'),
-(4, 1, '2020-06-06 12:22:33', 56, 'pay_EzJvlpELW6eEpa', '', '', '', '', 0, 'Processing'),
-(5, 1, '2020-06-07 08:29:21', 38, 'pay_EzdTBaHUkCsqzm', '', '', '', 'COD124', 12, 'Processing');
+(4, 1, '2020-06-06 12:22:33', 56, 'pay_EzJvlpELW6eEpa', '', '', '', '', 0, 'Delivered'),
+(5, 1, '2020-06-07 08:29:21', 38, 'pay_EzdTBaHUkCsqzm', '', '', '', 'COD124', 12, 'Processing'),
+(6, 1, '2020-06-11 10:07:34', 50, 'pay_F1FHP6JOjQGk3I', '', '', '', 'COD124', 12, 'Delivered');
 
 -- --------------------------------------------------------
 
@@ -135,7 +137,10 @@ INSERT INTO `order_items` (`id`, `orderid`, `productid`, `price`, `quantity`) VA
 (4, 3, 3, 12, 3),
 (5, 4, 1, 14, 4),
 (6, 5, 1, 14, 1),
-(7, 5, 2, 12, 3);
+(7, 5, 2, 12, 3),
+(8, 6, 1, 14, 1),
+(9, 6, 2, 12, 3),
+(10, 6, 3, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -212,8 +217,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `firstname`, `lastname`, `email`, `mobileno`, `password`, `is_admin`) VALUES
-(1, 'Dhiraj', '', 'sutardhiraj98@gmail.com', '8788332232', 'Dheeraj6898', -1),
-(2, 'Dhairyasheel', '', 'dhairya.sutar123@gmail.com', '8788332232', 'Dheeraj6898', 1);
+(1, 'Dhiraj', '', 'sutardhiraj98@gmail.com', '8788332232', 'e2fc714c4727ee9395f324cd2e7f331f', -1),
+(2, 'Dhairyasheel', '', 'dhairya.sutar123@gmail.com', '8788332232', 'e2fc714c4727ee9395f324cd2e7f331f', 1);
 
 --
 -- Indexes for dumped tables
@@ -293,13 +298,13 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `order_items`
 --
 ALTER TABLE `order_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `products`
