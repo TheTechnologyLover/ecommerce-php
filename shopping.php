@@ -52,7 +52,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="<?php echo SERVER_ROOT . 'uploads/' . $row['filename'] ?>">
                                     <ul class="product__item__pic__hover">
                                         <li class='shopping-cart' data-product="<?php echo $row['id'] ?>"><a><i class="fa fa-shopping-cart"></i></a></li>
-                                      
+                                        <li><a href="single.php?id=<?php echo $cryptor->encrypt($row['id']) ?>"><i class="fa fa-heart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">

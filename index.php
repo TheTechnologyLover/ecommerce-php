@@ -41,6 +41,7 @@
                         <div class="featured__item__pic set-bg" data-setbg="<?php echo SERVER_ROOT . 'uploads/' . $row['filename'] ?>">
                             <ul class="featured__item__pic__hover">
                                 <li class='shopping-cart' data-product="<?php echo $row['id'] ?>" ><a><i class="fa fa-shopping-cart"></i></a></li>
+                                <li><a href="single.php?id=<?php echo $cryptor->encrypt($row['id']) ?>"><i class="fa fa-heart"></i></a></li>
                             </ul>
                         </div>
                         <div class="featured__item__text">
@@ -121,9 +122,6 @@
     jQuery(document).ready(function ($){
 
         let signed_in = <?php echo  $Session->is_signed_in() === true ? 'true' : 'false' ?>
-
-        
-    
         let cartItems = <?php echo $cartItems ?>;
         let cartPrice = <?php echo $cartPrice ?>;
 
